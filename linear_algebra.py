@@ -45,6 +45,18 @@ def vector_sum(first_matrix, *args):
         return_value = vector_add(return_value, arg)
     return return_value
 
+def dot(first_matrix, second_matrix):
+    if len(first_matrix) != len(second_matrix):
+        raise ShapeError
+
+    if type(first_matrix[0]) is list and type(second_matrix[0]) is list:
+        for index in range(len(first_matrix[0])):
+            if len(first_matrix[index]) != len(second_matrix[index]):
+                raise ShapeError
+
+    if type(first_matrix[0]) is not list:
+        return sum([x * y for x, y in zip(first_matrix, second_matrix)])
+
 
 def main():
     pass
