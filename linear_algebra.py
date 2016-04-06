@@ -2,15 +2,16 @@ class ShapeError(Exception):
     pass
 
 
+def shape(matrix):
+    if type(matrix[0]) is not list:
+        return tuple((len(matrix),))
+    return tuple((len(matrix), len(matrix[0])))
 
-def shape(list_or_matrix):
-    if type(list_or_matrix[0]) is not list:
-        return tuple((len(list_or_matrix),))
-    return tuple((len(list_or_matrix), len(list_or_matrix[0])))
 
 def vector_add(first_matrix, second_matrix):
     if len(first_matrix) != len(second_matrix):
         raise ShapeError
+
 
     if type(first_matrix[0]) is list and type(second_matrix[0]) is list:
         for index in range(len(first_matrix[0])):
@@ -27,6 +28,7 @@ def vector_add(first_matrix, second_matrix):
     #     return_value[index] = sum(return_value[index])
     # return return_value
 
+
 def vector_sub(first_matrix, second_matrix):
     if len(first_matrix) != len(second_matrix):
         raise ShapeError
@@ -39,11 +41,13 @@ def vector_sub(first_matrix, second_matrix):
     if type(first_matrix[0]) is not list:
         return [x - y for x, y in zip(first_matrix, second_matrix)]
 
+
 def vector_sum(first_matrix, *args):
     return_value = first_matrix
     for arg in args:
         return_value = vector_add(return_value, arg)
     return return_value
+
 
 def dot(first_matrix, second_matrix):
     if len(first_matrix) != len(second_matrix):
@@ -56,6 +60,14 @@ def dot(first_matrix, second_matrix):
 
     if type(first_matrix[0]) is not list:
         return sum([x * y for x, y in zip(first_matrix, second_matrix)])
+
+
+def vector_multiply(matrix, scalar):
+    for index in range(len(matrix)):
+        matrix[index] = matrix[index] * scalar
+    return matrix
+#        for index2 in matrix[index1]:
+#            matrix[index1][index2] = matrix[index1][index2] * scalar
 
 
 def main():
