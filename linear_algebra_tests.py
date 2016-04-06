@@ -16,10 +16,6 @@ u = [1, 1, 1]
 y = [10, 20, 30]
 z = [0, 0, 0]
 
-# A = [[1, 0, 0],
-#      [0, 1, 0],
-#      [0, 0, 1]]
-
 def test_shape_vectors():
     """shape takes a vector or matrix and return a tuple with the
     number of rows (for a vector) or the number of rows and columns
@@ -55,23 +51,19 @@ def test_vector_sub():
     assert vector_sub(y, z) == y
     assert vector_sub(w, u) == vector_sub(z, vector_sub(u, w))
 
-
 @raises(ShapeError)
 def test_vector_sub_checks_shapes():
     """Shape rule: the vectors must be the same size."""
     vector_sub(m, v)
 
-
 def test_vector_sum():
     """vector_sum can take any number of vectors and add them together."""
     assert vector_sum(v, w, u, y, z) == [12, 26, 35]
-
 
 @raises(ShapeError)
 def test_vector_sum_checks_shapes():
     """Shape rule: the vectors must be the same size."""
     vector_sum(v, w, m, y)
-
 
 def test_dot():
     """
@@ -82,12 +74,10 @@ def test_dot():
     assert dot(m, n) == 15
     assert dot(u, z) == 0
 
-
 @raises(ShapeError)
 def test_dot_checks_shapes():
     """Shape rule: the vectors must be the same size."""
     dot(v, m)
-
 
 def test_vector_multiply():
     """
@@ -107,7 +97,6 @@ def test_vector_mean():
     assert are_equal(vector_mean(v, w, u)[0], 2 / 3)
     assert are_equal(vector_mean(v, w, u)[1], 2)
     assert are_equal(vector_mean(v, w, u)[2], 5 / 3)
-
 
 # def test_magnitude():
 #     """
