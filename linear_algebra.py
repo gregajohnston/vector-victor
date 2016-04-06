@@ -39,6 +39,12 @@ def vector_sub(first_matrix, second_matrix):
     if type(first_matrix[0]) is not list:
         return [x - y for x, y in zip(first_matrix, second_matrix)]
 
+def vector_sum(first_matrix, *args):
+    return_value = first_matrix
+    for arg in args:
+        return_value = vector_add(return_value, arg)
+    return return_value
+
 
 def main():
     pass

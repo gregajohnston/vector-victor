@@ -56,23 +56,23 @@ def test_vector_sub():
     assert vector_sub(w, u) == vector_sub(z, vector_sub(u, w))
 
 
-# @raises(ShapeError)
-# def test_vector_sub_checks_shapes():
-#     """Shape rule: the vectors must be the same size."""
-#     vector_sub(m, v)
-#
-#
-# def test_vector_sum():
-#     """vector_sum can take any number of vectors and add them together."""
-#     assert vector_sum(v, w, u, y, z) == [12, 26, 35]
-#
-#
-# @raises(ShapeError)
-# def test_vector_sum_checks_shapes():
-#     """Shape rule: the vectors must be the same size."""
-#     vector_sum(v, w, m, y)
-#
-#
+@raises(ShapeError)
+def test_vector_sub_checks_shapes():
+    """Shape rule: the vectors must be the same size."""
+    vector_sub(m, v)
+
+
+def test_vector_sum():
+    """vector_sum can take any number of vectors and add them together."""
+    assert vector_sum(v, w, u, y, z) == [12, 26, 35]
+
+
+@raises(ShapeError)
+def test_vector_sum_checks_shapes():
+    """Shape rule: the vectors must be the same size."""
+    vector_sum(v, w, m, y)
+
+
 # def test_dot():
 #     """
 #     dot([a b], [c d])   = a * c + b * d
