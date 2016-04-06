@@ -7,7 +7,6 @@ def are_equal(x, y, tolerance=0.001):
     """Helper function to compare floats, which are often not quite equal."""
     return abs(x - y) <= tolerance
 
-
 m = [3, 4]
 n = [5, 0]
 
@@ -17,6 +16,9 @@ u = [1, 1, 1]
 y = [10, 20, 30]
 z = [0, 0, 0]
 
+# A = [[1, 0, 0],
+#      [0, 1, 0],
+#      [0, 0, 1]]
 
 def test_shape_vectors():
     """shape takes a vector or matrix and return a tuple with the
@@ -24,19 +26,18 @@ def test_shape_vectors():
     (for a matrix.)"""
     assert shape([1]) == (1,)
     assert shape(m) == (2,)
-    assert shape(A) == (3, 3)
+    assert shape(v) == (3,)
+
+def test_vector_add():
+    """
+    [a b]  + [c d]  = [a+c b+d]
+    Matrix + Matrix = Matrix
+    """
+    assert vector_add(v, w) == [1, 5, 4]
+    assert vector_add(u, y) == [11, 21, 31]
+    assert vector_add(u, z) == u
 
 
-# def test_vector_add():
-#     """
-#     [a b]  + [c d]  = [a+c b+d]
-#     Matrix + Matrix = Matrix
-#     """
-#     assert vector_add(v, w) == [1, 5, 4]
-#     assert vector_add(u, y) == [11, 21, 31]
-#     assert vector_add(u, z) == u
-#
-#
 # def test_vector_add_is_commutative():
 #     assert vector_add(w, y) == vector_add(y, w)
 #
@@ -257,7 +258,3 @@ D = [[1, 2, 3],
 #     """Shape Rule: The number of columns of the first matrix must equal the
 #     number of rows of the second matrix."""
 #     matrix_matrix_multiply(A, D)
-
-print("Testing...")
-test_shape_vectors()
-print("Complete")
