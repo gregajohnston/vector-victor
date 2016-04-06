@@ -63,11 +63,25 @@ def dot(first_matrix, second_matrix):
 
 
 def vector_multiply(matrix, scalar):
+    return_value = matrix[:]
     for index in range(len(matrix)):
-        matrix[index] = matrix[index] * scalar
-    return matrix
-#        for index2 in matrix[index1]:
-#            matrix[index1][index2] = matrix[index1][index2] * scalar
+        return_value[index] = matrix[index] * scalar
+    return return_value
+
+
+def vector_sum_for_mean(first_matrix, *args):
+    return_value = first_matrix
+    count = 1
+    for arg in args:
+        return_value = vector_add(return_value, arg)
+        count += 1
+    return return_value, count
+
+
+def vector_mean(first_matrix, *args):
+    return_value, count = vector_sum_for_mean(first_matrix, *args)
+    return_value = vector_multiply(return_value, 1/count)
+    return return_value
 
 
 def main():
