@@ -1,0 +1,56 @@
+####Unfinished
+
+
+# def shape(matrix):
+#
+#     if type(matrix[0]) is not list:
+#         return tuple((len(matrix),))
+#
+#     return tuple((len(matrix), len(matrix[0])))
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# def vector_add(first_matrix, second_matrix):
+#     if type(first_matrix) and type(second_matrix) is not list:
+#             return first_matrix + second_matrix
+#
+#     if len(first_matrix) != len(second_matrix):
+#         raise ShapeError
+#
+#     if type(first_matrix[0]) is not list:
+#         return [x + y for x, y in zip(first_matrix, second_matrix)]
+#
+#     if type(first_matrix[0]) and type(second_matrix[0]) is list:
+#         uneven_list_check = [index for index in range(len(first_matrix[0]))
+#                             if len(first_matrix[index]) != len(second_matrix[index])]
+#         if uneven_list_check != []:
+#             raise ShapeError
+#
+####################################
+# def vector_sub(first_matrix, second_matrix):
+#     if len(first_matrix) != len(second_matrix):
+#         raise ShapeError
+#
+#     if type(first_matrix[0]) is not list:
+#         return [x - y for x, y in zip(first_matrix, second_matrix)]
+#
+#     if type(first_matrix[0]) and type(second_matrix[0]) is list:
+#         uneven_list_check = [index for index in range(len(first_matrix[0]))
+#                             if len(first_matrix[index]) != len(second_matrix[index])]
+#         if uneven_list_check != []:
+#             raise ShapeError
+#
+####################################
+# def vector_sum(first_matrix, *args):
+#     return_value = first_matrix[:]
+#     for arg in args:
+#         return_value = vector_add(return_value, arg)
+#     #return_value = [vector_add(x,y) for x,y in zip(return_value, args)]
+#     return return_value
+
+# def vector_multiply(matrix, scalar):
+#
+#     return_value = matrix[:]
+#     #return_value[] = [matrix[index] * scalar for index in range(len(matrix))]
+#     for index in range(len(matrix)):
+#         return_value[index] = matrix[index] * scalar
+#     return return_value
